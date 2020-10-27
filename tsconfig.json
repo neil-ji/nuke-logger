@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "outDir": "./lib/",
+        "noEmitOnError": true,
+        "module": "CommonJS",
+        "target": "ES5",
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "declaration": true,
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "strict": true,
+        "baseUrl": "src",
+        "moduleResolution": "Node",
+        "paths": {
+            "nuke-model": [
+                "./model"
+            ],
+            "nuke-util": [
+                "./util"
+            ]
+        }
+    },
+    "exclude": [
+        "script"
+    ]
+}
