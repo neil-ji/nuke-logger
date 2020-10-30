@@ -60,8 +60,9 @@ const mergeLevelOption = (a?: ILevelOptions, b?: ILevelOptions): ILevelOptions =
 
 const mergeOption = (...options: Array<ILoggerOptions | undefined>): ILoggerOptions => {
     const defaultOption: ILoggerOptions = {
+        timings: false,
         level: LogLevel.all,
-        package: "[nuke-logger]",
+        package: "[nuke]",
         trace: getLevelOption(
             "trace",
             getNodeStringSubstitution(Constants.NODE_STYLES.C_PURPLE),
@@ -98,6 +99,7 @@ const mergeOption = (...options: Array<ILoggerOptions | undefined>): ILoggerOpti
     }
     const mergedOption: ILoggerOptions = options.reduce((pre, cur) => {
         return {
+            timings: cur?.timings || pre?.timings,
             level: cur?.level || pre?.level,
             package: cur?.package || pre?.package,
             trace: mergeLevelOption(pre?.trace, cur?.trace),
